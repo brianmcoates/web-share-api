@@ -35,7 +35,6 @@
       var file = new File(['https://images.unsplash.com/photo-1597382048067-7923725a1524?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2792&q=80'], 'thing.jpg')
 
       console.log(file)
-      if (navigator.canShare && navigator.canShare()) {
         navigator.share({
           files: [file],
           title: 'Vacation Pictures',
@@ -43,9 +42,6 @@
         })
           .then(() => alert.log('Share was successful.'))
           .catch((error) => alert.log('Sharing failed', error));
-      } else {
-        console.log(`Your system doesn't support sharing files.`);
-      }
     })
 
 </script>
