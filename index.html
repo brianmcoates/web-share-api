@@ -28,19 +28,22 @@
 <!-- Add your site or application content here -->
 <p>Testing Share Image</p>
 
-<img src="testing.jpg" alt="dude with camera">
+<img id="image" style="display: block;" src="testing.jpg" alt="dude with camera">
 <script>
-  if (navigator.canShare && navigator.canShare()) {
-    navigator.share({
-      files: ['testing.jpg'],
-      title: 'Vacation Pictures',
-      text: 'Photos from September 27 to October 14.',
+    document.getElementById('image').addEventListener('click', function(){
+      if (navigator.canShare && navigator.canShare()) {
+        navigator.share({
+          files: ['testing.jpg'],
+          title: 'Vacation Pictures',
+          text: 'Photos from September 27 to October 14.',
+        })
+          .then(() => console.log('Share was successful.'))
+          .catch((error) => console.log('Sharing failed', error));
+      } else {
+        console.log(`Your system doesn't support sharing files.`);
+      }
     })
-      .then(() => console.log('Share was successful.'))
-      .catch((error) => console.log('Sharing failed', error));
-  } else {
-    console.log(`Your system doesn't support sharing files.`);
-  }
+
 </script>
 
 
