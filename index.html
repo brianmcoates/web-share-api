@@ -28,12 +28,17 @@
 <!-- Add your site or application content here -->
 <p>Testing Share Image</p>
 
-<img id="image" style="display: block;" src="testing.jpg" alt="dude with camera">
+<img id="image" type='file' style="display: block; width: 200px;" src="testing.jpg" alt="dude with camera">
+<input id="filesyo" type="file">
 <script>
     document.getElementById('image').addEventListener('click', function(){
+      var file = new File(['https://images.unsplash.com/photo-1597382048067-7923725a1524?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2792&q=80'], 'thing.jpg')
+
+      alert('clicked')
+      console.log(file)
       if (navigator.canShare && navigator.canShare()) {
         navigator.share({
-          files: ['testing.jpg'],
+          files: [file],
           title: 'Vacation Pictures',
           text: 'Photos from September 27 to October 14.',
         })
